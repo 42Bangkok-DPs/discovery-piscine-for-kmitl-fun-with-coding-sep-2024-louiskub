@@ -1,10 +1,9 @@
-count=0
-for i in "$@"; do
-    count=$((count + 1))
-    mkdir ex$i
-
-if [ $count -eq 0 ]; then
-    echo No arguments supplied
+if [ $# -eq 0 ]; then
+    echo "No arguments supplied"
+    exit 1
 fi
+
+for i in "$@"; do
+    mkdir ex$i
 
 done
