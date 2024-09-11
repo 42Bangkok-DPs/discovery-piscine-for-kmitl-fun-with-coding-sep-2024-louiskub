@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body class="colorchange">
+<body>
     <button onclick="changeBackgroundColor()">Click me</button>
 
     <script>
@@ -14,7 +14,6 @@
             let color = '#';
             for (let i = 0; i < 6; i++) {
                 let num = Math.floor(Math.random()*16)
-                // console.log(num);
                 color += letters[num];
             }
             return color;
@@ -22,7 +21,6 @@
 
         function changeBackgroundColor() {
             const body = document.body
-            // // console.log(body)
             body.style.backgroundColor = getRandomColor();
         }
     </script>
