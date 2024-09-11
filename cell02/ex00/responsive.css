@@ -1,0 +1,15 @@
+table {
+    font-size: 20px;
+    width: 100%;
+    border-collapse: collapse;
+}
+td {
+    padding: 40px 40px 40px 0;
+    border: 2px solid black;
+}
+.left{
+    background-color: antiquewhite;
+}
+.right{
+    background-color: aquamarine;
+}
