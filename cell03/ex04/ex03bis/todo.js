@@ -22,7 +22,7 @@ $(document).ready(function() {
             const $newItem = $('<div></div>')
                 .text(task)
                 .addClass('todo-item')
-                .click(() => {
+                .click(function(){
                     if (confirm('Do you want to remove this TO DO?')) {
                         $(this).remove();
                         saveTasks();
