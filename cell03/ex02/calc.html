@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="left number" id="input1">
+    <select name="" id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+    <input type="text" placeholder="right number" id="input2">
+    <button onclick="clicked()">Click Me</button>
+
+    <script>
+        let intervalId
+        function clicked(){
+            let input1 = document.getElementById('input1').value;
+            let input2 = document.getElementById('input2').value;
+            let operator = document.getElementById('operator').value;
+            
+            input1 = Number(input1);
+            input2 = Number(input2);
+            if (input1 < 0 || input2 < 0 || !Number.isInteger(input1) || !Number.isInteger(input2)){
+                console.log(input1, input2);
+                console.log(typeof(input1), typeof(input2))
+                alert('Error :(')
+                return;
+            }
+            if ((operator == '/' || operator == '%') && input2 == 0){
+                alert('Its over 9000!')
+                return;
+            }
+            ans = 0
+            switch (operator){
+                case '+':
+                    ans = input1+input2;
+                    break;
+                case '-':
+                    ans = input1-input2;
+                    break;
+                case '*':
+                    ans = input1*input2;
+                    break;
+                case '/':
+                    ans = input1/input2;
+                    break;
+                case '%':
+                    ans = input1%input2;
+                    break;
+            }
+            alert(ans);
+        }
+        
+        function reminder(){
+            clearInterval(intervalId);
+            alert("Please, use me...");
+            intervalId = setInterval(reminder, 1000);
+        }
+        intervalId = setInterval(reminder, 1000);
+        
+    </script>
+</body>
+</html>
