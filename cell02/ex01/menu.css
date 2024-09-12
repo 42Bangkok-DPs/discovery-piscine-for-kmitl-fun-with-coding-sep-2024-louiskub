@@ -1,0 +1,30 @@
+.dropdown{
+    width: 100px;
+    display: inline-block;
+    .content{
+        display: none;
+    }
+    .btn {
+        padding: 10px;
+        background-color:aquamarine;
+    }
+    
+    a{
+        text-decoration: none;
+        color: black;
+        background-color: antiquewhite;
+        padding: 10px;
+        width: 120px;
+    }
+}
+
+.dropdown:hover{
+    .content{
+        display: block;
+    }
+    a {
+        display: block;
+        
+    }
+}
+
