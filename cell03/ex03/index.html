@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+
+        #ft_list{
+            min-width: 300px;
+            max-width: fit-content;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0px;
+            background-color: #fff;
+        }
+
+        .todo-item{
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px 0;
+            background-color: #eee;
+        }
+
+        .todo-item:hover {
+            background-color: #ddd;
+        }
+
+
+        #new-btn {
+            padding: 5px 40px;
+            border: 1px solid #222;
+            border-radius: 5px;
+        }
+        
+
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div id="ft_list"></div>
+    <button id="new-btn">New</button>
+    
+</body>
+<script src="./todo.js"></script>
+</html>
