@@ -1,43 +1,46 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const listContainer = document.getElementById('ft_list');
-    const newButton = document.getElementById('new-btn');
+$(document).ready(function() {
+    const $listContainer = $('#ft_list');
+    const $newButton = $('#new-btn');
 
     function loadTasks() {
         const cookies = document.cookie.split('; ');
         const taskCookie = cookies.find(cookie => cookie.startsWith('tasks='));
-        // console.log(taskCookie)
         if (taskCookie) {
             const tasks = JSON.parse(decodeURIComponent(taskCookie.split('=')[1]));
-            listContainer.innerHTML = '';
+            $listContainer.empty();
             tasks.reverse().forEach(task => addTaskToList(task));
         }
     }
 
     function saveTasks() {
-        const tasks = Array.from(document.querySelectorAll('.todo-item')).map(item => item.textContent);
+        const tasks = $.map($('.todo-item'), function(item) {
+            return $(item).text();
+        });
         document.cookie = `tasks=${encodeURIComponent(JSON.stringify(tasks))}; path=/;`;
     }
 
     function addTaskToList(task) {
         if (task.trim()) {
-            const newItem = document.createElement('div');
-            newItem.textContent = task;
-            newItem.className = 'todo-item';
-            newItem.onclick = function() {
-                if (confirm('Do you want to remove this TO DO?')) {
-                    newItem.remove();
-                    saveTasks();
-                }
-            };
-            listContainer.insertBefore(newItem, listContainer.firstChild);
+            const $newItem = $('<div></div>')
+                .text(task)
+                .addClass('todo-item')
+                .click(function() {
+                    if (confirm('Do you want to remove this TO DO?')) {
+                        $(this).remove();
+                        saveTasks();
+                    }
+                });
+            $listContainer.prepend($newItem);
             saveTasks();
         }
     }
 
-    newButton.onclick = () => {
+    $newButton.click(function() {
         const task = prompt('Enter a new TO DO');
-        addTaskToList(task);
-    };
+        if (task !== null) {
+            addTaskToList(task);
+        }
+    });
 
     loadTasks();
 });
