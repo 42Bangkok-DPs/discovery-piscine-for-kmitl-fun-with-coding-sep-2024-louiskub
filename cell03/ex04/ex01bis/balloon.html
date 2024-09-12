@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         .box {
             width: 200px;
@@ -24,7 +25,7 @@
     </div>
 
     <script>
-        const con = document.getElementsByClassName("box")[0];
+        const $con = $(".box");
         let width = 200;
         let height = 200;
         let color = 0;
@@ -42,10 +43,11 @@
                 color = 2
             }
             
-            con.style.width = String(width)+"px"
-            con.style.height = String(height)+"px"
-            console.log(height);
-            con.style.backgroundColor = colors[color]
+            $con.css({
+                "width": width + "px",
+                "height": height + "px",
+                "background-color": colors[color]
+            });
         }
 
         function clicked(){
@@ -62,8 +64,11 @@
             display();
         }
 
-        con.addEventListener('click', clicked)
-        con.addEventListener('mouseleave', leave)
+        $con.click(clicked);
+        $con.mouseleave(leave);
+
+        // $con.on('click', clicked);
+        // $con.on('mouseleave', leave);
 
     </script>
 </body>
