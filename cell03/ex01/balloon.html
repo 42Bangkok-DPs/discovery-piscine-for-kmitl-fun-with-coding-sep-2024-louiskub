@@ -7,12 +7,64 @@
     <style>
         .box {
             width: 200px;
+            height: 200px;
+            background-color: red;
+            border: 1px solid black;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
         }
     </style>
 </head>
 <body>
     <div class="box">
-
+        Box Box
     </div>
+
+    <script>
+        const con = document.getElementsByClassName("box")[0];
+        let width = 200;
+        let height = 200;
+        let color = 0;
+        let colors = ["red", "green", "blue"]
+
+        function display(){
+            if (height > 420 || height < 200){
+                height = 200;
+                width = 200;
+            }
+            if (color > 2){
+                color = 0;
+            }
+            if (color < 0){
+                color = 2
+            }
+            
+            con.style.width = String(width)+"px"
+            con.style.height = String(height)+"px"
+            console.log(height);
+            con.style.backgroundColor = colors[color]
+        }
+
+        function clicked(){
+            height += 10;
+            width += 10;
+            color += 1;
+            display();
+        }
+
+        function leave(){
+            height -= 5;
+            width -= 5;
+            color -= 1;
+            display();
+        }
+
+        con.addEventListener('click', clicked)
+        con.addEventListener('mouseleave', leave)
+
+    </script>
 </body>
 </html>
