@@ -13,9 +13,7 @@ $(document).ready(function() {
     }
 
     function saveTasks() {
-        const tasks = $.map($('.todo-item'), function(item) {
-            return $(item).text();
-        });
+        const tasks = $.map($('.todo-item'), item => $(item).text());
         document.cookie = `tasks=${encodeURIComponent(JSON.stringify(tasks))}; path=/;`;
     }
 
@@ -24,7 +22,7 @@ $(document).ready(function() {
             const $newItem = $('<div></div>')
                 .text(task)
                 .addClass('todo-item')
-                .click(function() {
+                .click(() => {
                     if (confirm('Do you want to remove this TO DO?')) {
                         $(this).remove();
                         saveTasks();
