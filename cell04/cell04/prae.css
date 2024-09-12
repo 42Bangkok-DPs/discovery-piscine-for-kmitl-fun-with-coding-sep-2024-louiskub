@@ -1,0 +1,26 @@
+nav {
+    background-color: #003366; 
+    display: flex;
+    a {
+        text-decoration: none; 
+    }
+    a button {
+        padding: 20px; /* Adjust padding as needed */
+        background-color: #003366; 
+        border: none; /* Remove default border */
+        color: white; 
+        font-weight: bold; 
+        font-size: 20px; /* Adjust font size as needed */
+        cursor: pointer; /* Change cursor to pointer */
+        transition: background-color 0.3s ease; /* Smooth color transition */
+    }
+    a button:hover {
+        background-color: #1f64a8; /* Change color on hover */
+    }
+    
+    a button:active {
+        background-color: #042448; /* Lighter color when pressed */
+    }
+}
+
+
